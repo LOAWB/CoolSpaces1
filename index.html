@@ -6,16 +6,129 @@
   <title>Remote Cleaning Business Guide</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
-<body>
-  <div id="root"></div>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div id="root">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Remote Cleaning Business Guide</h1>
+        <p class="text-gray-600 text-lg">Complete System to Build a $1M+ Business</p>
+      </div>
+      
+      <!-- Static version of modules -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">Learning Modules</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div class="module-card" onclick="toggleModule(1)">
+            <div class="text-4xl mb-2">🏢</div>
+            <div class="text-center font-medium px-2">Business Foundation</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(2)">
+            <div class="text-4xl mb-2">💻</div>
+            <div class="text-center font-medium px-2">Software & Insurance</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(3)">
+            <div class="text-4xl mb-2">🧹</div>
+            <div class="text-center font-medium px-2">Hiring Cleaners</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(4)">
+            <div class="text-4xl mb-2">📢</div>
+            <div class="text-center font-medium px-2">Marketing & Leads</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(5)">
+            <div class="text-4xl mb-2">💰</div>
+            <div class="text-center font-medium px-2">Sales Strategy</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(6)">
+            <div class="text-4xl mb-2">📈</div>
+            <div class="text-center font-medium px-2">Growth Systems</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(7)">
+            <div class="text-4xl mb-2">⭐</div>
+            <div class="text-center font-medium px-2">Brand Building</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(8)">
+            <div class="text-4xl mb-2">🌦️</div>
+            <div class="text-center font-medium px-2">Seasonal Strategies</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(9)">
+            <div class="text-4xl mb-2">👥</div>
+            <div class="text-center font-medium px-2">Virtual Assistants</div>
+          </div>
+          <div class="module-card" onclick="toggleModule(10)">
+            <div class="text-4xl mb-2">🛠️</div>
+            <div class="text-center font-medium px-2">Resources & Tools</div>
+          </div>
+        </div>
+      </div>
 
-  <script type="text/babel" src="CleaningBusinessGuide.jsx"></script>
-  <script type="text/babel">
-    ReactDOM.render(<InteractiveBusinessGuide />, document.getElementById('root'));
-  </script>
+      <!-- Checklists -->
+      <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">Checklists</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="checklist-card" onclick="toggleChecklist(1)">
+            <div class="text-4xl mb-2">✓</div>
+            <div class="text-center font-medium px-2">Startup Checklist</div>
+          </div>
+          <div class="checklist-card" onclick="toggleChecklist(2)">
+            <div class="text-4xl mb-2">✓</div>
+            <div class="text-center font-medium px-2">Marketing Checklist</div>
+          </div>
+          <div class="checklist-card" onclick="toggleChecklist(3)">
+            <div class="text-4xl mb-2">✓</div>
+            <div class="text-center font-medium px-2">Growth Checklist</div>
+          </div>
+          <div class="checklist-card" onclick="toggleChecklist(4)">
+            <div class="text-4xl mb-2">✓</div>
+            <div class="text-center font-medium px-2">Key Performance Indicators</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Content Display Area -->
+      <div id="moduleContent" class="bg-white rounded-xl shadow-lg p-6 mb-6 hidden"></div>
+      <div id="checklistContent" class="bg-white rounded-xl shadow-lg p-6 mb-6 hidden"></div>
+      
+      <!-- Default message -->
+      <div id="defaultMessage" class="bg-white rounded-xl shadow-lg p-6 text-center">
+        <h2 class="text-xl text-gray-700 mb-3">Get Started</h2>
+        <p class="text-gray-600">Click on any module or checklist above to view detailed information and track your progress.</p>
+      </div>
+      
+      <!-- Revenue Milestones -->
+      <div class="mt-8">
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">Revenue Milestones</h2>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="h-4 bg-gradient-to-r from-blue-500 via-purple-500 to-red-500"></div>
+          <div class="p-6">
+            <div class="flex flex-col md:flex-row justify-between mb-8">
+              <div class="text-center mb-4 md:mb-0">
+                <div class="text-blue-500 font-bold text-lg">Milestone 1</div>
+                <div class="text-2xl font-bold text-gray-800">$10,000</div>
+                <div class="text-sm text-gray-600">Monthly Revenue</div>
+              </div>
+              <div class="text-center mb-4 md:mb-0">
+                <div class="text-purple-500 font-bold text-lg">Milestone 2</div>
+                <div class="text-2xl font-bold text-gray-800">$30,000</div>
+                <div class="text-sm text-gray-600">Monthly Revenue</div>
+              </div>
+              <div class="text-center">
+                <div class="text-red-500 font-bold text-lg">Milestone 3</div>
+                <div class="text-2xl font-bold text-gray-800">$100,000+</div>
+                <div class="text-sm text-gray-600">Monthly Revenue</div>
+              </div>
+            </div>
+            <div class="text-gray-600 text-sm">
+              <p class="mb-2">• At $10K: Focus on cleaner quality and lead generation</p>
+              <p class="mb-2">• At $30K: Hire VA and implement systems</p>
+              <p>• At $100K: Optimize all constraints and scale operations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
