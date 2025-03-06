@@ -590,4 +590,4 @@ document.addEventListener('DOMContentLoaded', function() {
                       'transition-all', 'duration-200', 'bg-white', 'hover:bg-green-50',
                       'h-40', 'w-full');
   });
-});
+}); 
