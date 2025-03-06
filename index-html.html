@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoolSpaces - Professional Insulation Services</title>
+    <style>
+        :root {
+            --primary-color: #0077B6; /* Blue - represents coolness */
+            --secondary-color: #023E8A; /* Darker blue */
+            --accent-color: #FF9E00; /* Orange for contrast and warmth */
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1200x600/DDDDDD/555555?text=Insulation+Services');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e58e00;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .service-icon {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .why-us {
+            padding: 80px 0;
+        }
+        
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .why-us-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 8px;
+            background-color: var(--light-color);
+            transition: transform 0.3s;
+        }
+        
+        .why-us-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .why-us-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .why-us-item h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .about {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            height: 400px;
+            background-image: url('https://placehold.co/600x400/DDDDDD/555555?text=About+Us');
+            background-position: center;
+            background-size: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .customer-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .customer-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 15px;
+            background-image: url('https://placehold.co/50x50/DDDDDD/555555?text=C');
+            background-size: cover;
+        }
+        
+        .cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+        
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-right: 15px;
+            min-width: 20px;
+        }
+        
+        .contact-form {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .contact-form h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 18px;
+            color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li:first-child {
+                margin-left: 0;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-header h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Cool<span>Spaces</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Professional Insulation Solutions</h1>
+            <p>Lower your energy bills and increase your comfort with our premium insulation services for residential and commercial buildings.</p>
+            <a href="#contact" class="btn">Get a Free Quote</a>
+            <a href="#services" class="btn btn-primary" style="margin-left: 10px;">Our Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Insulation Services</h2>
+                <p>We provide comprehensive insulation solutions to improve energy efficiency and comfort in your space.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://placehold.co/400x200/DDDDDD/555555?text=Attic+Insulation')"></div>
+                    <div class="service-content">
+                        <div class="service-icon">❄️</div>
+                        <h3>Attic Insulation</h3>
+                        <p>Proper attic insulation helps maintain consistent indoor temperatures, reducing energy costs and preventing ice dams in winter.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://placehold.co/400x200/DDDDDD/555555?text=Wall+Insulation')"></div>
+                    <div class="service-content">
+                        <div class="service-icon">🏠</div>
+                        <h3>Wall Insulation</h3>
+                        <p>Our wall insulation solutions improve energy efficiency by preventing heat transfer through exterior walls, maintaining comfortable indoor temperatures.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://placehold.co/400x200/DDDDDD/555555?text=Spray+Foam')"></div>
+                    <div class="service-content">
+                        <div class="service-icon">🌡️</div>
+                        <h3>Spray Foam Insulation</h3>
+                        <p>High-performance spray foam insulation creates an air-tight seal, maximizing energy efficiency and reducing noise transfer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose CoolSpaces?</h2>
+                <p>Our commitment to quality and customer satisfaction sets us apart.</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <div class="why-us-icon">✓</div>
+                    <h3>Expert Team</h3>
+                    <p>Our certified professionals have years of experience in the insulation industry.</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">✓</div>
+                    <h3>Quality Materials</h3>
+                    <p>We use only premium materials that ensure long-lasting performance.</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">✓</div>
+                    <h3>Energy Savings</h3>
+                    <p>Our insulation solutions help reduce energy costs by up to 40%.</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">✓</div>
+                    <h3>Satisfaction Guaranteed</h3>
+                    <p>We stand behind our work with comprehensive warranties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About CoolSpaces Insulation</h2>
+                <p>Phoenix's trusted insulation experts serving homeowners and businesses alike.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-img"></div>
+                <div class="about-text">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 20px;">Our Story</h3>
+                    <p>Founded with a mission to improve home comfort and energy efficiency, CoolSpaces Insulation has quickly become the Phoenix area's go-to insulation specialist. We understand the unique challenges that Arizona's climate presents, and we deliver tailored solutions that keep your spaces cool when you need it most.</p>
+                    
+                    <h3 style="color: var(--secondary-color); margin: 25px 0 20px;">Our Approach</h3>
+                    <p>At CoolSpaces, we believe in doing the job right the first time. We use only premium materials and the most advanced installation techniques to ensure optimal performance and longevity. Our team takes the time to thoroughly assess your space and provide recommendations that best suit your specific needs and budget.</p>
+                    
+                    <h3 style="color: var(--secondary-color); margin: 25px 0 20px;">Our Commitment</h3>
+                    <p>We're committed to providing exceptional customer service from the initial consultation through project completion. We respect your time and property, arriving when scheduled and leaving your space clean and tidy. Our work isn't done until you're completely satisfied with the results.</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="#contact" class="btn">Get Your Free Quote</a>
+                        <a href="tel:6027329201" class="btn btn-primary" style="margin-left: 15px;">Call Us Today</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px;">
+                <div class="why-us-grid">
+                    <div class="why-us-item">
+                        <div class="why-us-icon">🔍</div>
+                        <h3>Free Inspections</h3>
+                        <p>We provide thorough property assessments to identify insulation needs.</p>
+                    </div>
+                    <div class="why-us-item">
+                        <div class="why-us-icon">💯</div>
+                        <h3>Quality Guaranteed</h3>
+                        <p>We stand behind our work with industry-leading warranties.</p>
+                    </div>
+                    <div class="why-us-item">
+                        <div class="why-us-icon">⚡</div>
+                        <h3>Energy Efficient</h3>
+                        <p>Our solutions are designed to maximize energy savings year-round.</p>
+                    </div>
+                    <div class="why-us-item">
+                        <div class="why-us-icon">🛠️</div>
+                        <h3>Professional Team</h3>
+                        <p>Our installers are certified and extensively trained in best practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Testimonials</h2>
+                <p>Read what our satisfied customers have to say about our services.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        After CoolSpaces insulated our attic, we noticed an immediate difference in our home's temperature and our energy bills dropped by 30% the first month!
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-img"></div>
+                        <div>
+                            <h4>Michael Thompson</h4>
+                            <p>Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The team was professional, clean, and completed the job ahead of schedule. Our office space is now much more comfortable year-round.
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-img"></div>
+                        <div>
+                            <h4>Lisa Rodriguez</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        We had spray foam insulation installed in our basement, and it not only improved temperature control but also significantly reduced outside noise.
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-img"></div>
+                        <div>
+                            <h4>David Chen</h4>
+                            <p>Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Improve Your Space?</h2>
+            <p>Contact us today for a free consultation and estimate. Start saving on energy costs while enjoying a more comfortable environment.</p>
+            <a href="#contact" class="btn" style="background-color: white; color: var(--primary-color);">Get Started Now</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Reach out to our team for more information or to schedule a consultation.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>(602) 732-9201</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong>
+                            <p>Lucas@coolspacesinsulation.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Hours</strong>
+                            <p>Monday - Friday: 8am - 6pm<br>
+                            Saturday: 9am - 2pm<br>
+                            Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">🌎</div>
+                        <div>
+                            <strong>Service Area</strong>
+                            <p>We proudly serve the greater Phoenix metropolitan area and surrounding communities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm" action="#" onsubmit="alert('Thank you for your message. We will contact you shortly!'); return false;">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone">
+                        <textarea placeholder="How can we help you?" required></textarea>
+                        <button type="submit" class="btn" style="width: 100%;">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CoolSpaces</h3>
+                    <p>Professional insulation solutions for residential and commercial properties.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Attic Insulation</a></li>
+                        <li><a href="#services">Wall Insulation</a></li>
+                        <li><a href="#services">Spray Foam Insulation</a></li>
+                        <li><a href="#services">Commercial Insulation</a></li>
+                        <li><a href="#contact">Energy Audits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="tel:6027329201">(602) 732-9201</a></li>
+                        <li><a href="mailto:Lucas@coolspacesinsulation.com">Lucas@coolspacesinsulation.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CoolSpaces Insulation. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
