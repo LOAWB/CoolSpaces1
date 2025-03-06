@@ -1,0 +1,93 @@
+/* Custom styles to enhance the interactive guide */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+}
+
+/* Smooth animations for module transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Custom scrollbar for horizontal module navigation */
+div.overflow-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #e2e8f0;
+}
+
+div.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+div.overflow-x-auto::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+div.overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: #3b82f6;
+  border-radius: 10px;
+}
+
+/* Adding hover effect to checklist items */
+input[type="checkbox"] {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* Making module cards more interactive */
+div.flex-shrink-0.w-40.h-40 {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+div.flex-shrink-0.w-40.h-40:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient background for revenue milestones */
+.bg-gradient-to-r {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 640px) {
+  div.flex-shrink-0.w-40.h-40 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+}
